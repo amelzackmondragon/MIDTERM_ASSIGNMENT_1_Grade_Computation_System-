@@ -3011,9 +3011,9 @@
             this.label110.ForeColor = System.Drawing.Color.DarkRed;
             this.label110.Location = new System.Drawing.Point(6, 50);
             this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(101, 16);
+            this.label110.Size = new System.Drawing.Size(97, 16);
             this.label110.TabIndex = 0;
-            this.label110.Text = "Weitten Exam";
+            this.label110.Text = "Written Exam";
             // 
             // Form1
             // 
