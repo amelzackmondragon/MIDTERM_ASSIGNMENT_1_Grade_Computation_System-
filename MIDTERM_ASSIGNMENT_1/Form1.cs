@@ -78,28 +78,25 @@ namespace MIDTERM_ASSIGNMENT_1
         {
             try
             {
-                //PRELIM SECTION 
-                // (10%)
+                //prelim
                 double p_cp = (GetGrade(ps1, pt1, pg1) + GetGrade(ps2, pt2, pg2) + GetGrade(ps3, pt3, pg3) +
                                GetGrade(ps4, pt4, pg4) + GetGrade(ps5, pt5, pg5) + GetGrade(ps6, pt6, pg6)) / 6;
                 pav1.Text = p_cp.ToString("0.0");
 
-                // Lab(10%)
                 double p_lab = (GetGrade(pls1, plt1, plg1) + GetGrade(pls2, plt2, plg2) +
                                 GetGrade(pls3, plt3, plg3) + GetGrade(pls4, plt4, plg4)) / 4;
                 pav2.Text = p_lab.ToString("0.0");
 
-                // quizzes(20%)
                 double p_qz = (GetGrade(pqs1, pqt1, pqg1) + GetGrade(pqs2, pqt2, pqg2) + GetGrade(pqs3, pqt3, pqg3)) / 3;
                 pav3.Text = p_qz.ToString("0.0");
 
-                // exam(60%)
-                double p_ex = GetGrade(pes1, pet1, peg1);
+                double p_lab_ex = GetGrade(ples1, plet1, pleg1); 
+                double p_wri_ex = GetGrade(pes1, pet1, peg1);    
 
-                double preTotal = (p_cp * 0.1) + (p_lab * 0.1) + (p_qz * 0.2) + (p_ex * 0.6);
+                double preTotal = (p_cp * 0.1) + (p_lab * 0.1) + (p_qz * 0.2) + (p_lab_ex * 0.2) + (p_wri_ex * 0.4);
                 txtp.Text = preTotal.ToString("0.00");
 
-                //MIDTERM SECTION
+                //midterm
                 double m_cp = (GetGrade(ms1, mt1, mg1) + GetGrade(ms2, mt2, mg2) + GetGrade(ms3, mt3, mg3) +
                                GetGrade(ms4, mt4, mg4) + GetGrade(ms5, mt5, mg5) + GetGrade(ms6, mt6, mg6)) / 6;
                 mav1.Text = m_cp.ToString("0.0");
@@ -111,11 +108,13 @@ namespace MIDTERM_ASSIGNMENT_1
                 double m_qz = (GetGrade(mqs1, mqt1, mqg1) + GetGrade(mqs2, mqt2, mqg2) + GetGrade(mqs3, mqt3, mqg3)) / 3;
                 mav3.Text = m_qz.ToString("0.0");
 
-                double m_ex = GetGrade(mes1, met1, meg1);
-                double midTotal = (m_cp * 0.1) + (m_lab * 0.1) + (m_qz * 0.2) + (m_ex * 0.6);
+                double m_lab_ex = GetGrade(mles1, mlet1, mleg1); 
+                double m_wri_ex = GetGrade(mes1, met1, meg1);    
+
+                double midTotal = (m_cp * 0.1) + (m_lab * 0.1) + (m_qz * 0.2) + (m_lab_ex * 0.2) + (m_wri_ex * 0.4);
                 txtm.Text = midTotal.ToString("0.00");
 
-                //FINALS SECTION
+                //finals
                 double f_cp = (GetGrade(fs1, ft1, fg1) + GetGrade(fs2, ft2, fg2) + GetGrade(fs3, ft3, fg3) +
                                GetGrade(fs4, ft4, fg4) + GetGrade(fs5, ft5, fg5) + GetGrade(fs6, ft6, fg6)) / 6;
                 fav1.Text = f_cp.ToString("0.0");
@@ -128,13 +127,12 @@ namespace MIDTERM_ASSIGNMENT_1
                 fav3.Text = f_qz.ToString("0.0");
 
                 double f_proj = (GetGrade(fps1, fpt1, fpg1) + GetGrade(fps2, fpt2, fpg2)) / 2;
+                double f_wri_ex = GetGrade(fes1, fet1, feg1); 
 
-                double f_ex = GetGrade(fes1, fet1, feg1);
-
-                double finTotal = (f_cp * 0.05) + (f_lab * 0.1) + (f_qz * 0.2) + (f_proj * 0.25) + (f_ex * 0.40);
+                double finTotal = (f_cp * 0.05) + (f_lab * 0.1) + (f_qz * 0.2) + (f_proj * 0.25) + (f_wri_ex * 0.40);
                 txtf.Text = finTotal.ToString("0.00");
 
-                //SUMMARY
+                //SUMMARY 
                 double grandTotal = (preTotal * 0.33) + (midTotal * 0.33) + (finTotal * 0.34);
                 txttotal.Text = grandTotal.ToString("0.00");
 
@@ -153,7 +151,7 @@ namespace MIDTERM_ASSIGNMENT_1
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show(ex.Message, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void btnclear_Click(object sender, EventArgs e)
